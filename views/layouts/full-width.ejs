@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        MyCoin
+    </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Bingo One page parallax responsive
+            HTML
+            Template">
+    <meta name="author" content="Themefisher.com">
+    <!-- Mobile Specific Meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+    <!-- CSS -->
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="plugins/themefisher-font.v-2/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <%- body %>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </div>
+
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/dist/js/popper.min.js"></script>
+    <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Smooth Scroll js -->
+    <script src="plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+    <!-- Custom js -->
+    <script src="js/script.js"></script>
+
+    <script>
+        $('#btnCreateWallet').on('click', function () {
+            $.ajax({
+                url: 'http://localhost:3000/signup',
+                type: 'POST'
+            }).done(function (data) {
+                console.log(data);
+                //   for (f of data) {
+                // const tr = `<tr>
+                //         <th scope="row">${f.actor_id}</th>
+                //         <td>${f.first_name}</td>
+                //         <td>${f.last_name}</td>
+                //         <td>${f.last_update}</td>
+                //       </tr>`;
+                // $('#actor_container').append(tr);
+                //}
+
+            })
+        });
+    </script>
+</body>
+
+</html>
