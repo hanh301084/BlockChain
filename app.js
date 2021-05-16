@@ -4,11 +4,22 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
+var mongoose = require('mongoose');
+require('dotenv/config');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+mongoose.connect(process.env.DB_MONGO_CONNECT,{ useNewUrlParser: true, useUnifiedTopology: true } ,(err)=>{
+  if (err)
+  { 
+    console.log('Failed connected!!!')
+    throw err;
+  }
+  console.log("connect to db");
+});
 
 app.use(expressLayouts);
 app.set('layout', './layouts/full-width');
