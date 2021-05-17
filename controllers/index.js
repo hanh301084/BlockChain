@@ -18,6 +18,7 @@ exports.createWallet = async (req, res) => {
     }
 }
 
+// lộ Private Key khi gửi đi, Private Key bị nhớ lại t thẻ input
 exports.accessWallet = async (req, res) => {
     const myPrivateKey = req.body.PrivateKey;
     try{
