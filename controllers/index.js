@@ -12,7 +12,19 @@ exports.createWallet = async (req, res) => {
     console.log(key.PublicKey + '\n' + key.hashPrivateKey);
     try{
         const saveKey = await key.save(); 
-        res.render('signup', {key: keyPair.getPrivate('hex')});
+        res.render('signup', {key:null, Privatekey: keyPair.getPrivate('hex')});
+    }catch(err){
+        res.json({ message: err });
+    }
+}
+
+exports.accessWallet = async (req, res) => {
+    const myPrivateKey = req.body.PrivateKey;
+    try{
+        const myKey = await keyModel.find({"hashPrivateKey":SHA256(myPrivateKey).toString()}); 
+        req.session.key = myKey;
+        console.log('myKey'+req.session.key);
+        res.redirect('/');
     }catch(err){
         res.json({ message: err });
     }
