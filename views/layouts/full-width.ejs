@@ -51,26 +51,7 @@
     <!-- Custom js -->
     <script src="js/script.js"></script>
 
-    <script>
-        $('#btnCreateWallet').on('click', function () {
-            $.ajax({
-                url: 'http://localhost:3000/signup',
-                type: 'POST'
-            }).done(function (data) {
-                console.log(data);
-                //   for (f of data) {
-                // const tr = `<tr>
-                //         <th scope="row">${f.actor_id}</th>
-                //         <td>${f.first_name}</td>
-                //         <td>${f.last_name}</td>
-                //         <td>${f.last_update}</td>
-                //       </tr>`;
-                // $('#actor_container').append(tr);
-                //}
 
-            })
-        });
-    </script>
 </body>
 
 </html>

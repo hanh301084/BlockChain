@@ -1,13 +1,29 @@
 <section class="signin-page account">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="block text-center">
-            <h2 class="text-center">Get a new wallet</h2>
-            <p class="mt-20">Already have a wallet?<a href="login"> Access My Wallet</a></p>
-              <button id="btnCreateWallet" type="button" style="background-color: white;color:mediumseagreen;" class="btn btn-main text-center">Create</button>
-          </div>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="block text-center">
+                    <h2 class="text-center">Get a new wallet</h2>
+                    <p class="mt-20">Already have a wallet?
+                        <a href="/login">Access My Wallet</a>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <form id="form" name="form" action="/signup" method="POST">
+                        <input type="submit" value="Create Wallet" />
+                    </form>
+                </div>
+                <%if (key) { %>
+                    <div style="background: white;  margin: 16px 0px; padding: 12px;">
+                        <p style="color:red; font-family: Roboto, sans-serif; font-size: 14px;" class="text-center"><strong>PrivateKey:</strong></p>
+                        <p style="color:red; font-family: Roboto, sans-serif; font-size: 14px;"><%= key %></p>
+                    </div>
+                    <p class="mt-20 text-center">
+                        DO NOT FORGET to save your PrivateKey. You will need this PrivateKey to unlock your wallet
+                    </p>
+                    <% } %>
+
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
